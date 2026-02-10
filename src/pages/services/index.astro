@@ -1,0 +1,55 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ServiceCard from '@/components/ui/ServiceCard.astro';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import CtaBanner from '@/components/sections/CtaBanner.astro';
+import { services } from '@/data/services';
+---
+
+<BaseLayout
+  title="业务领域"
+  description="浙江拜伦智能科技三大核心业务：自动化零部件、视觉产线解决方案、AI知识数字化。"
+>
+  <section class="bg-gradient-to-br from-primary-900 to-primary-700 py-20">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-sm font-semibold text-accent-400 uppercase tracking-widest mb-4 block">业务领域</span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">三大核心业务</h1>
+      <p class="text-primary-200 max-w-2xl mx-auto leading-relaxed">
+        围绕工业智能化全链路，提供从硬件零部件到软件解决方案的完整服务体系。
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding bg-gray-50">
+    <div class="container-max mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section-padding bg-white">
+    <div class="container-max mx-auto">
+      <SectionHeader eyebrow="服务流程" title="我们如何为您服务" center />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { step: '01', title: '需求沟通', desc: '深入了解您的业务场景与技术需求。' },
+          { step: '02', title: '方案设计', desc: '制定针对性的技术方案与实施计划。' },
+          { step: '03', title: '部署实施', desc: '专业团队现场部署，确保顺利落地。' },
+          { step: '04', title: '持续支持', desc: '提供培训、维护与持续优化服务。' },
+        ].map((item) => (
+          <div class="text-center p-6">
+            <div class="w-12 h-12 bg-primary-700 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+              {item.step}
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+</BaseLayout>

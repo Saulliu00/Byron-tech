@@ -1,0 +1,145 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import CtaBanner from '@/components/sections/CtaBanner.astro';
+
+const applications = [
+  {
+    icon: '🔍',
+    title: '外观缺陷检测',
+    desc: '自动识别产品表面划痕、气泡、污点、形变等缺陷，替代人工视检，检测速度提升 10 倍以上。',
+    tags: ['PCB 检测', '金属件检测', '包装检测'],
+  },
+  {
+    icon: '📐',
+    title: '尺寸精密测量',
+    desc: '亚像素级精度测量产品关键尺寸与几何形状，在线 100% 质检，误差 < ±0.01mm。',
+    tags: ['轮廓测量', '孔径检测', '平面度'],
+  },
+  {
+    icon: '🤖',
+    title: '机器人引导定位',
+    desc: '为机器人提供实时视觉反馈，实现灵活抓取与精确装配，适应多品种混产场景。',
+    tags: ['3D 视觉', '抓取定位', '装配引导'],
+  },
+  {
+    icon: '📝',
+    title: '字符与码值读取',
+    desc: '高速识别产品上的二维码、条形码、字符及铭牌信息，实现产品全程追溯。',
+    tags: ['二维码', 'OCR', '激光刻印'],
+  },
+];
+
+const techStack = [
+  '工业相机与镜头选型',
+  '专业光源方案设计',
+  '深度学习缺陷检测算法',
+  '图像处理与分析软件',
+  'PLC / MES 系统对接',
+  '全线集成与调试',
+];
+---
+
+<BaseLayout
+  title="视觉产线解决方案"
+  description="浙江拜伦智能科技提供缺陷检测、尺寸测量、机器人引导等完整工业视觉解决方案。"
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-teal-900 via-teal-800 to-primary-900 py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+      style="background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl">
+        <a href="/services" class="inline-flex items-center gap-1 text-teal-300 text-sm mb-6 hover:text-white transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          返回业务领域
+        </a>
+        <span class="text-sm font-semibold text-teal-300 uppercase tracking-widest mb-4 block">视觉产线解决方案</span>
+        <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6">智能检测 · 精准识别</h1>
+        <p class="text-lg text-teal-100 leading-relaxed">
+          结合工业相机、光源及深度学习算法，为客户提供缺陷检测、尺寸测量、定位引导等完整视觉系统集成服务，
+          将产品质量控制提升至全自动智能化水平。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications -->
+  <section class="section-padding bg-white">
+    <div class="container-max mx-auto">
+      <SectionHeader
+        eyebrow="应用场景"
+        title="视觉系统应用领域"
+        subtitle="覆盖制造业质检全流程，提供端到端视觉解决方案。"
+        center
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {applications.map((app) => (
+          <div class="p-6 bg-teal-50 rounded-2xl border border-teal-100 hover:shadow-md transition-shadow">
+            <div class="text-3xl mb-3">{app.icon}</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">{app.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">{app.desc}</p>
+            <div class="flex flex-wrap gap-2">
+              {app.tags.map((tag) => (
+                <span class="text-xs bg-teal-100 text-teal-700 px-2.5 py-1 rounded-full font-medium">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-max mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <SectionHeader
+            eyebrow="技术能力"
+            title="完整视觉系统集成能力"
+            subtitle="从硬件选型到软件开发，再到系统部署，我们提供全栈视觉解决方案。"
+          />
+          <ul class="space-y-3">
+            {techStack.map((item) => (
+              <li class="flex items-center gap-3 text-sm text-gray-700">
+                <svg class="w-5 h-5 text-teal-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-teal-600 to-teal-800 rounded-3xl p-8 text-white">
+          <h3 class="text-2xl font-bold mb-6">项目交付流程</h3>
+          {[
+            { n: '01', t: '现场调研', d: '了解产线环境与检测需求' },
+            { n: '02', t: '方案评估', d: '输出可行性报告与技术方案' },
+            { n: '03', t: '样品测试', d: '搭建测试环境，验证检测效果' },
+            { n: '04', t: '系统集成', d: '正式部署并与产线对接' },
+            { n: '05', t: '验收培训', d: '达标验收，提供操作培训' },
+          ].map((s) => (
+            <div class="flex items-start gap-4 mb-4 last:mb-0">
+              <span class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs font-bold shrink-0">{s.n}</span>
+              <div>
+                <p class="font-semibold text-sm">{s.t}</p>
+                <p class="text-teal-200 text-xs">{s.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="有视觉检测项目需求？"
+    subtitle="联系我们获取免费技术可行性评估。"
+  />
+</BaseLayout>

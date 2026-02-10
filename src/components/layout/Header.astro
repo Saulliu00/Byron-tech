@@ -1,0 +1,130 @@
+---
+import { navItems } from '@/data/navigation';
+import { company } from '@/data/company';
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-sm"
+>
+  <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div
+          class="w-9 h-9 bg-primary-700 rounded-lg flex items-center justify-center text-white font-bold text-lg"
+        >
+          拜
+        </div>
+        <div class="hidden sm:block">
+          <p class="font-bold text-primary-800 text-base leading-tight">{company.shortName}</p>
+          <p class="text-xs text-gray-500 leading-tight">智能制造 · 驱动未来</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-1">
+        {
+          navItems.map((item) =>
+            item.children ? (
+              <div class="relative group">
+                <button class="flex items-center gap-1 px-4 py-2 text-gray-700 font-medium hover:text-primary-700 transition-colors rounded-lg hover:bg-primary-50">
+                  {item.label}
+                  <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  {item.children.map((child) => (
+                    <a
+                      href={child.href}
+                      class="block px-4 py-3 text-sm text-gray-700 hover:text-primary-700 hover:bg-primary-50 first:rounded-t-xl last:rounded-b-xl transition-colors"
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={item.href}
+                class="px-4 py-2 text-gray-700 font-medium hover:text-primary-700 transition-colors rounded-lg hover:bg-primary-50"
+              >
+                {item.label}
+              </a>
+            )
+          )
+        }
+      </nav>
+
+      <!-- CTA + Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="/contact" class="hidden sm:inline-flex btn-primary text-sm py-2 px-4">
+          立即咨询
+        </a>
+        <button
+          id="mobile-menu-toggle"
+          aria-label="打开菜单"
+          class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+        >
+          <svg id="icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+    <nav class="px-4 py-4 space-y-1">
+      {
+        navItems.map((item) => (
+          <div>
+            <a
+              href={item.href}
+              class="block px-4 py-3 text-gray-700 font-medium hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors"
+            >
+              {item.label}
+            </a>
+            {item.children && (
+              <div class="ml-4 mt-1 space-y-1">
+                {item.children.map((child) => (
+                  <a
+                    href={child.href}
+                    class="block px-4 py-2 text-sm text-gray-600 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors"
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+      <div class="pt-2 border-t border-gray-100">
+        <a href="/contact" class="btn-primary w-full justify-center text-sm">立即咨询</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Offset spacer -->
+<div class="h-16 lg:h-20"></div>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+  });
+</script>

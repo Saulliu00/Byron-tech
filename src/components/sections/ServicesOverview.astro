@@ -1,0 +1,20 @@
+---
+import ServiceCard from '@/components/ui/ServiceCard.astro';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import { services } from '@/data/services';
+---
+
+<section class="section-padding bg-gray-50">
+  <div class="container-max mx-auto">
+    <SectionHeader
+      eyebrow="核心业务"
+      title="三大业务领域"
+      subtitle="围绕智能制造全链路，提供从硬件零部件到软件解决方案的完整服务体系。"
+      center
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,132 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import CtaBanner from '@/components/sections/CtaBanner.astro';
+
+const useCases = [
+  {
+    icon: '⚙️',
+    title: '工艺参数优化',
+    desc: '将注塑、焊接、热处理等工序中的老师傅经验转化为参数优化模型，降低次品率，稳定工艺窗口。',
+  },
+  {
+    icon: '🔮',
+    title: '预测性维护',
+    desc: '基于设备历史运行数据，建立故障预测模型，提前 72 小时预警潜在故障，减少非计划停机。',
+  },
+  {
+    icon: '📊',
+    title: '生产效率分析',
+    desc: '挖掘产线数据中的效率瓶颈，通过机器学习找出影响 OEE 的关键因素，提供优化建议。',
+  },
+  {
+    icon: '🧩',
+    title: '知识图谱构建',
+    desc: '将企业质检标准、维修手册、操作规程结构化，构建可查询、可推理的工业知识图谱。',
+  },
+];
+
+const steps = [
+  { title: '数据盘点', desc: '梳理现有数据资产，评估数据质量与可用性。' },
+  { title: '知识萃取', desc: '访谈专家，将隐性经验显性化、结构化。' },
+  { title: '模型构建', desc: '基于业务目标选择合适算法，训练初版模型。' },
+  { title: '验证迭代', desc: '在实际环境中测试模型，持续收集反馈优化。' },
+  { title: '落地部署', desc: '将模型集成到现有 MES/ERP 或边缘设备。' },
+  { title: '持续学习', desc: '模型随生产数据增长自动更新，保持最优状态。' },
+];
+---
+
+<BaseLayout
+  title="AI 知识数字化"
+  description="浙江拜伦智能科技帮助制造企业将传统经验转化为AI模型，实现知识资产数字化。"
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-purple-900 via-purple-800 to-primary-900 py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+      style="background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl">
+        <a href="/services" class="inline-flex items-center gap-1 text-purple-300 text-sm mb-6 hover:text-white transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          返回业务领域
+        </a>
+        <span class="text-sm font-semibold text-purple-300 uppercase tracking-widest mb-4 block">AI 知识数字化</span>
+        <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6">经验沉淀 · 智能传承</h1>
+        <p class="text-lg text-purple-100 leading-relaxed">
+          帮助企业将多年积累的工艺参数、专家经验与历史数据转化为可运行的 AI 模型，
+          实现知识资产的数字化沉淀，让经验可复制、可传承、可迭代。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem statement -->
+  <section class="py-12 bg-purple-50 border-y border-purple-100">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        {[
+          { q: '老员工退休，核心工艺经验随之流失？', icon: '😟' },
+          { q: '产品良率波动大，靠经验调机效率低？', icon: '📉' },
+          { q: '数据积累了很多，却不知道如何发挥价值？', icon: '💾' },
+        ].map((item) => (
+          <div class="flex flex-col items-center gap-3 p-6">
+            <span class="text-4xl">{item.icon}</span>
+            <p class="text-gray-700 font-medium text-sm leading-relaxed">{item.q}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-primary-700 font-semibold mt-6">
+        这些问题，正是拜伦 AI 知识数字化服务致力于解决的。
+      </p>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section-padding bg-white">
+    <div class="container-max mx-auto">
+      <SectionHeader
+        eyebrow="典型场景"
+        title="AI 赋能制造业应用场景"
+        subtitle="针对制造业痛点，提供可落地的 AI 解决方案。"
+        center
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {useCases.map((uc) => (
+          <div class="p-6 bg-purple-50 rounded-2xl border border-purple-100 hover:shadow-md transition-shadow flex gap-4">
+            <div class="text-3xl shrink-0">{uc.icon}</div>
+            <div>
+              <h3 class="font-bold text-gray-900 mb-2">{uc.title}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">{uc.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-max mx-auto">
+      <SectionHeader eyebrow="实施路径" title="从数据到智能的六步法" center />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {steps.map((step, i) => (
+          <div class="p-6 bg-white rounded-2xl border border-gray-100 hover:border-purple-200 hover:shadow-md transition-all">
+            <div class="w-10 h-10 bg-purple-700 text-white rounded-xl flex items-center justify-center font-bold text-sm mb-4">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{step.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="想将企业经验转化为数字资产？"
+    subtitle="预约 AI 顾问，获取免费数字化成熟度评估报告。"
+  />
+</BaseLayout>

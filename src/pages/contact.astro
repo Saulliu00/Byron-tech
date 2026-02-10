@@ -1,0 +1,22 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactForm from '@/components/sections/ContactForm.astro';
+---
+
+<BaseLayout
+  title="联系我们"
+  description="联系浙江拜伦智能科技，获取自动化零部件报价、视觉系统方案或AI数字化咨询。"
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary-900 to-primary-700 py-20">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-sm font-semibold text-accent-400 uppercase tracking-widest mb-4 block">联系我们</span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">期待与您携手合作</h1>
+      <p class="text-primary-200 max-w-xl mx-auto">
+        无论是产品询价、技术咨询还是项目合作，我们的团队将在 24 小时内回复。
+      </p>
+    </div>
+  </section>
+
+  <ContactForm />
+</BaseLayout>

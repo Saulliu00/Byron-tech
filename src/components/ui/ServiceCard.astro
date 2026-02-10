@@ -1,0 +1,72 @@
+---
+import type { Service } from '@/data/services';
+import { serviceColorMap } from '@/data/services';
+
+interface Props {
+  service: Service;
+  featured?: boolean;
+}
+
+const { service, featured = false } = Astro.props;
+const colors = serviceColorMap[service.color];
+---
+
+<article
+  class:list={[
+    'card-base flex flex-col border',
+    colors.border,
+    featured ? 'ring-2 ring-primary-700 ring-offset-2' : '',
+  ]}
+>
+  <!-- Header -->
+  <div class:list={['p-6', colors.bg]}>
+    <div class="text-4xl mb-3">{service.icon}</div>
+    <span class:list={['text-xs font-medium px-2 py-1 rounded-full', colors.badge]}>
+      {service.subtitle}
+    </span>
+    <h3 class="text-xl font-bold text-gray-900 mt-3">{service.title}</h3>
+    <p class="text-sm text-gray-600 mt-2 leading-relaxed">{service.description}</p>
+  </div>
+
+  <!-- Features -->
+  <div class="p-6 flex-1">
+    <ul class="space-y-2">
+      {
+        service.features.map((feat) => (
+          <li class="flex items-start gap-2 text-sm text-gray-700">
+            <svg
+              class:list={['w-4 h-4 mt-0.5 shrink-0', colors.icon]}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            {feat}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="px-6 pb-6">
+    <a
+      href={service.href}
+      class:list={[
+        'w-full inline-flex items-center justify-center gap-2 text-white font-medium py-3 rounded-lg transition-colors',
+        colors.btn,
+      ]}
+    >
+      了解更多
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</article>

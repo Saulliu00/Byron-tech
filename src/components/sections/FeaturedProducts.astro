@@ -1,0 +1,27 @@
+---
+import ProductCard from '@/components/ui/ProductCard.astro';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import Button from '@/components/ui/Button.astro';
+import { products } from '@/data/products';
+
+const featured = products.slice(0, 3);
+---
+
+<section class="section-padding bg-white">
+  <div class="container-max mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
+      <SectionHeader
+        eyebrow="产品中心"
+        title="主要产品系列"
+        subtitle="精选高精度自动化零部件，满足多样化工业应用需求。"
+      />
+      <Button href="/products" variant="outline" size="sm" class="shrink-0 self-start sm:self-auto mb-12">
+        查看全部产品 →
+      </Button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {featured.map((product) => <ProductCard product={product} />)}
+    </div>
+  </div>
+</section>

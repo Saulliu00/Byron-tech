@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-gray-800 bg-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-primary-800 mb-4;
+  }
+  .section-subtitle {
+    @apply text-lg text-gray-600 mb-12 max-w-3xl;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg hover:bg-primary-800 transition-colors duration-200;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-primary-700 text-primary-700 font-medium px-6 py-3 rounded-lg hover:bg-primary-700 hover:text-white transition-colors duration-200;
+  }
+  .card-base {
+    @apply bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+  }
+}

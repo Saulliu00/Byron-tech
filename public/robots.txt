@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://byrontech.cn/sitemap-index.xml

@@ -1,0 +1,98 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import StatsBar from '@/components/sections/StatsBar.astro';
+import CtaBanner from '@/components/sections/CtaBanner.astro';
+import { company } from '@/data/company';
+
+const milestones = [
+  { year: '创立', event: '浙江拜伦智能科技有限公司正式成立，专注自动化零部件分销。' },
+  { year: '拓展', event: '成立视觉技术团队，开始承接工业视觉检测系统集成项目。' },
+  { year: '深化', event: '与多家制造企业建立长期合作，完成 50+ 视觉产线项目落地。' },
+  { year: '创新', event: '正式推出 AI 知识数字化服务，将传统工艺经验转化为智能模型。' },
+  { year: '今日', event: '服务 200+ 企业，持续深耕工业智能化领域。' },
+];
+
+const values = [
+  { icon: '💡', title: '技术驱动', desc: '持续投入研发，以前沿技术为客户创造实际价值。' },
+  { icon: '🤝', title: '客户至上', desc: '深入理解客户需求，提供真正解决问题的方案。' },
+  { icon: '🎯', title: '精益求精', desc: '对每个项目保持高标准，确保质量与可靠性。' },
+  { icon: '🌱', title: '共同成长', desc: '与客户建立长期合作，共同实现智能化转型。' },
+];
+---
+
+<BaseLayout
+  title="关于我们"
+  description="了解浙江拜伦智能科技有限公司的发展历程、核心价值观与团队理念。"
+>
+  <!-- Page Hero -->
+  <section class="bg-gradient-to-br from-primary-900 to-primary-700 py-24">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-sm font-semibold text-accent-400 uppercase tracking-widest mb-4 block">关于我们</span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6">{company.name}</h1>
+      <p class="text-lg text-primary-200 max-w-2xl mx-auto leading-relaxed">
+        {company.description}
+      </p>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <!-- Mission & Vision -->
+  <section class="section-padding bg-white">
+    <div class="container-max mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <SectionHeader
+            eyebrow="我们的使命"
+            title="用技术赋能中国制造"
+            subtitle="我们相信，每一家制造企业积累的工艺知识与生产经验，都是宝贵的数字资产。拜伦科技的使命，就是帮助这些企业将隐性知识显性化、将传统经验智能化，让中国制造在全球舞台上更具竞争力。"
+          />
+          <div class="mt-8 p-6 bg-primary-50 rounded-2xl border border-primary-100">
+            <p class="text-primary-800 font-semibold mb-2">我们的愿景</p>
+            <p class="text-gray-700 text-sm leading-relaxed">
+              成为长三角地区最受信赖的工业智能化服务商，以硬件、软件、数据三位一体的能力，
+              帮助制造企业从自动化迈向智能化。
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          {values.map((v) => (
+            <div class="p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary-200 hover:shadow-md transition-all">
+              <div class="text-2xl mb-2">{v.icon}</div>
+              <h3 class="font-bold text-gray-900 mb-1">{v.title}</h3>
+              <p class="text-xs text-gray-600 leading-relaxed">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Milestones -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-max mx-auto">
+      <SectionHeader eyebrow="发展历程" title="我们的成长之路" center />
+      <div class="max-w-2xl mx-auto">
+        <div class="relative">
+          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-primary-200"></div>
+          <ul class="space-y-8">
+            {milestones.map((m, i) => (
+              <li class="relative flex items-start gap-6 pl-14">
+                <div class="absolute left-0 w-12 h-12 bg-primary-700 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">
+                  {i + 1}
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-primary-600 uppercase tracking-widest mb-1">{m.year}</p>
+                  <p class="text-gray-700 text-sm leading-relaxed">{m.event}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+</BaseLayout>

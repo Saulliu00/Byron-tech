@@ -1,0 +1,76 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import ProductCard from '@/components/ui/ProductCard.astro';
+import CtaBanner from '@/components/sections/CtaBanner.astro';
+import { products } from '@/data/products';
+
+const automationProducts = products.filter(
+  (p) => ['转台', '导轨', '电机', '控制器'].includes(p.category)
+);
+
+const highlights = [
+  { icon: '🎯', title: '品牌甄选', desc: '严选国内外知名品牌，确保品质稳定可靠。' },
+  { icon: '📦', title: '现货库存', desc: '常用型号保持充足库存，最快 24 小时发货。' },
+  { icon: '🔩', title: '选型支持', desc: '资深工程师免费提供选型建议与技术参数匹配。' },
+  { icon: '🛠️', title: '集成方案', desc: '可提供从零部件到完整运动控制系统的集成服务。' },
+];
+---
+
+<BaseLayout
+  title="自动化零部件"
+  description="浙江拜伦智能科技提供高精度转台、直线导轨、伺服电机及运动控制解决方案。"
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-blue-900 py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+      style="background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl">
+        <a href="/services" class="inline-flex items-center gap-1 text-primary-300 text-sm mb-6 hover:text-white transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          返回业务领域
+        </a>
+        <span class="text-sm font-semibold text-accent-400 uppercase tracking-widest mb-4 block">自动化零部件</span>
+        <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6">精密传动 · 可靠运行</h1>
+        <p class="text-lg text-primary-200 leading-relaxed">
+          提供高精度转台、直线导轨、伺服电机及配套控制系统，涵盖从单件采购到整体运动解决方案的全链路服务。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-max mx-auto">
+      <SectionHeader eyebrow="服务优势" title="为什么向我们采购零部件" center />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {highlights.map((h) => (
+          <div class="text-center p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary-200 hover:shadow-md transition-all">
+            <div class="text-3xl mb-3">{h.icon}</div>
+            <h3 class="font-bold text-gray-900 mb-2">{h.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{h.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="section-padding bg-white">
+    <div class="container-max mx-auto">
+      <SectionHeader eyebrow="产品系列" title="主要零部件产品" />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {automationProducts.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="需要选型建议或报价？"
+    subtitle="我们的工程师将在 24 小时内为您提供专业建议。"
+  />
+</BaseLayout>
