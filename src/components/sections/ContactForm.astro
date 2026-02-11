@@ -59,13 +59,17 @@ import { company } from '@/data/company';
 
       <!-- Form -->
       <div class="card-base border border-gray-100 p-8">
+        <div id="form-result" class="hidden mb-5 p-4 rounded-lg text-sm font-medium text-center"></div>
         <form
-          name="contact"
+          id="contact-form"
+          action="https://api.web3forms.com/submit"
           method="POST"
-          data-netlify="true"
           class="space-y-5"
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <!-- Web3Forms access key — replace with your key from web3forms.com -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
+          <!-- Honeypot spam protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
@@ -131,6 +135,7 @@ import { company } from '@/data/company';
           </div>
 
           <button
+            id="submit-btn"
             type="submit"
             class="w-full btn-primary justify-center py-3.5 text-base"
           >
@@ -141,6 +146,43 @@ import { company } from '@/data/company';
           </button>
         </form>
       </div>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const result = document.getElementById('form-result') as HTMLDivElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = '发送中…';
+
+    const data = new FormData(form);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+      });
+      const json = await res.json();
+      result.classList.remove('hidden', 'bg-red-50', 'text-red-700', 'bg-green-50', 'text-green-700');
+      if (json.success) {
+        result.classList.add('bg-green-50', 'text-green-700');
+        result.textContent = '✅ 消息已发送！我们将在 24 小时内与您联系。';
+        form.reset();
+      } else {
+        result.classList.add('bg-red-50', 'text-red-700');
+        result.textContent = '❌ 发送失败，请稍后重试或直接发送邮件联系我们。';
+      }
+    } catch {
+      result.classList.remove('hidden');
+      result.classList.add('bg-red-50', 'text-red-700');
+      result.textContent = '❌ 网络错误，请稍后重试。';
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '发送消息 <svg class="w-5 h-5 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>';
+    }
+  });
+</script>
     </div>
   </div>
 </section>

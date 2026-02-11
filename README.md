@@ -67,7 +67,14 @@ src/
 - **阿里云 OSS** / **腾讯云 COS**：上传 `dist/` 即可
 - **Nginx**：将根目录指向 `dist/`
 
-## 联系表单
+## 联系表单设置（Web3Forms）
 
-当前表单使用 Netlify Forms 属性（`data-netlify="true"`）。
-若部署到其他平台，请修改 `src/components/sections/ContactForm.astro` 中的表单处理方式。
+表单通过 [Web3Forms](https://web3forms.com) 发送邮件，免费且无需服务器。
+
+**激活步骤：**
+1. 访问 https://web3forms.com，输入您的邮箱地址
+2. 收到验证邮件后，复制页面上显示的 **Access Key**
+3. 打开 `src/components/sections/ContactForm.astro`
+4. 将 `3649139d-fd44-44cc-bc44-9929d831b212` 替换为您的 Access Key
+
+完成后，访客提交的每条留言将自动发送到您的邮箱。
