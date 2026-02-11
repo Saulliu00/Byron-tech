@@ -5,7 +5,7 @@ export const company = {
   tagline: '智能制造，驱动未来',
   description:
     '浙江拜伦智能科技有限公司专注于工业自动化零部件供应、基于视觉的智能产线解决方案，以及将传统行业经验转化为数字资产的人工智能赋能服务。',
-  phone: '+86 (0571) 0000-0000',
+  phone: '+86 185-1672-1988',
   email: 'contact@byrontech.cn',
   address: '浙江省 · 中国',
   icp: '',

@@ -74,7 +74,7 @@ import { navItems } from '@/data/navigation';
   <div class="border-t border-primary-800">
     <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
       <p>© {new Date().getFullYear()} {company.name}. 保留所有权利。</p>
-      {company.icp && <p><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener" class="hover:text-gray-300 transition-colors">{company.icp}</a></p>}
+      {company.icp && <p><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">{company.icp}</a></p>}
     </div>
   </div>
 </footer>
