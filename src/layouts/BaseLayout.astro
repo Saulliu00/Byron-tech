@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = '浙江拜伦智能科技有限公司 — 自动化零部件、视觉产线解决方案与AI知识数字化专家。',
+  description = '浙江拜伦智能科技有限公司 — 工业智能化集成解决方案、视觉产线解决方案与AI知识数字化专家。',
   image = '/og-image.png',
 } = Astro.props;
 
@@ -29,7 +29,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Open Graph -->
     <meta property="og:title" content={`${title} | 浙江拜伦智能科技`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    {image && <meta property="og:image" content={image} />}
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_CN" />
     <!-- Favicon -->

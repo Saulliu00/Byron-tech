@@ -1,80 +1,159 @@
 # 浙江拜伦智能科技有限公司 — 官方网站
 
-基于 [Astro](https://astro.build) 构建的全静态企业官网。
+Official website for **Byron Intelligence** (浙江拜伦智能科技有限公司).
 
-## 快速开始
+Built with [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com), deployed as a static site.
 
-### 前提条件
-- Node.js 18+（推荐 LTS 版本）
-- npm / pnpm / bun
+---
 
-### 安装与运行
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Astro v4 |
+| Styling | Tailwind CSS v3 |
+| Forms | Web3Forms |
+| Testing | Playwright |
+| Node | v20+ |
+
+---
+
+## Getting Started
+
+**Requirements:** Node.js v20+
 
 ```bash
-# 安装依赖
+# Install dependencies
 npm install
 
-# 本地开发（热更新）
+# Start dev server (with hot reload)
 npm run dev
-
-# 构建静态文件（输出至 dist/）
-npm run build
-
-# 预览构建产物
-npm run preview
+# → http://localhost:4321
 ```
 
-## 项目结构
+---
+
+## Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start local dev server |
+| `npm run build` | Build for production (outputs to `dist/`) |
+| `npm run preview` | Preview production build locally |
+| `npm test` | Run Playwright regression tests |
+| `npm run test:ui` | Run tests with list reporter |
+
+---
+
+## Project Structure
 
 ```
 src/
 ├── components/
 │   ├── layout/        # Header, Footer
-│   ├── sections/      # 页面区块（Hero, Services, CtaBanner…）
-│   └── ui/            # 原子组件（Button, Card, SectionHeader…）
-├── data/              # 内容数据（公司信息、服务、产品）
-├── layouts/           # 基础布局 BaseLayout.astro
-├── pages/             # 路由页面
-│   ├── index.astro       首页
-│   ├── about.astro       关于我们
-│   ├── products.astro    产品中心
-│   ├── contact.astro     联系我们
-│   └── services/
-│       ├── index.astro
-│       ├── automation-parts.astro
-│       ├── vision-solutions.astro
-│       └── ai-solutions.astro
-└── styles/
-    └── global.css
+│   ├── sections/      # Hero, ServicesOverview, ContactForm, etc.
+│   └── ui/            # Button, ProductCard, ServiceCard, SectionHeader
+├── data/
+│   ├── company.ts     # Company info, tagline, contact details, ICP
+│   ├── navigation.ts  # Nav items and dropdown structure
+│   ├── products.ts    # Product catalogue
+│   └── services.ts    # Three core service definitions
+├── layouts/
+│   └── BaseLayout.astro  # HTML shell, meta/OG tags
+└── pages/
+    ├── index.astro
+    ├── about.astro
+    ├── contact.astro
+    ├── products.astro
+    └── services/
+        ├── index.astro
+        ├── automation-parts.astro
+        ├── vision-solutions.astro
+        └── ai-solutions.astro
+
+public/
+├── logo.png           # Byron Intelligence logo (transparent background)
+├── og-image.png       # Open Graph image (1200×630)
+├── favicon.svg        # Browser favicon
+└── robots.txt
 ```
 
-## 内容更新
+---
 
-所有业务内容集中在 `src/data/` 目录下：
+## Content Updates
 
-| 文件 | 说明 |
-|------|------|
-| `company.ts` | 公司名称、联系方式、统计数据 |
-| `services.ts` | 三大业务领域描述与特性 |
-| `products.ts` | 产品目录与规格参数 |
-| `navigation.ts` | 导航菜单结构 |
+All site content is managed through `src/data/` — no template changes needed for routine updates.
 
-## 部署
+| File | What to edit |
+|---|---|
+| `company.ts` | Company name, tagline, phone, email, address, ICP number |
+| `services.ts` | Three core service titles, descriptions, and features |
+| `products.ts` | Product catalogue, specs, and categories |
+| `navigation.ts` | Nav links and dropdown structure |
 
-构建后将 `dist/` 目录部署到任意静态托管平台：
+---
 
-- **Vercel** / **Netlify**：连接 Git 仓库，自动构建
-- **阿里云 OSS** / **腾讯云 COS**：上传 `dist/` 即可
-- **Nginx**：将根目录指向 `dist/`
+## Assets
 
-## 联系表单设置（Web3Forms）
+| File | Usage |
+|---|---|
+| `public/logo.png` | Header and footer logo (transparent PNG) |
+| `public/og-image.png` | Social share preview image (1200×630 PNG) |
+| `public/favicon.svg` | Browser tab icon |
 
-表单通过 [Web3Forms](https://web3forms.com) 发送邮件，免费且无需服务器。
+To regenerate `og-image.png` after a logo change:
+```bash
+python3 -c "
+from PIL import Image, ImageDraw, ImageFont
+# See og-image generation script in project git history
+"
+```
 
-**激活步骤：**
-1. 访问 https://web3forms.com，输入您的邮箱地址
-2. 收到验证邮件后，复制页面上显示的 **Access Key**
-3. 打开 `src/components/sections/ContactForm.astro`
-4. 将 `3649139d-fd44-44cc-bc44-9929d831b212` 替换为您的 Access Key
+---
 
-完成后，访客提交的每条留言将自动发送到您的邮箱。
+## Contact Form
+
+Forms are handled by [Web3Forms](https://web3forms.com) (free, no server required).
+
+To change the recipient email:
+1. Visit https://web3forms.com and enter your email
+2. Copy the **Access Key** from the confirmation page
+3. Replace the key in `src/components/sections/ContactForm.astro`
+
+---
+
+## Regression Tests
+
+Tests live in [`tests/regression.spec.ts`](tests/regression.spec.ts) and cover:
+
+- All pages return HTTP 200
+- Navigation links and dropdown menus
+- Header/footer logo rendering and branding text
+- Homepage hero headline, description, service cards
+- Contact form fields and accessibility attributes (`role="alert"`, `aria-live`)
+- SEO meta tags (`og:url`, `og:image`, `canonical`, `lang`)
+- Branding consistency — no stale copy, no typos
+
+```bash
+# Terminal 1 — start dev server
+npm run dev
+
+# Terminal 2 — run tests
+npm test
+```
+
+---
+
+## Deployment
+
+Build and deploy the `dist/` folder to any static host:
+
+- **Vercel / Netlify** — connect Git repo, auto-builds on push
+- **阿里云 OSS / 腾讯云 COS** — upload `dist/` directly
+- **Nginx** — point root to `dist/`
+
+---
+
+## ICP
+
+备案号：**6E3862C7-4810AC**　　[工业和信息化部备案管理系统](https://beian.miit.gov.cn)

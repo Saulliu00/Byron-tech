@@ -2,13 +2,13 @@ export const company = {
   name: '浙江拜伦智能科技有限公司',
   nameEn: 'Zhejiang Byron Intelligent Technology Co., Ltd.',
   shortName: '拜伦科技',
-  tagline: '智能制造，驱动未来',
+  tagline: '用AI重构工业智能系统',
   description:
-    '浙江拜伦智能科技有限公司专注于工业自动化零部件供应、基于视觉的智能产线解决方案，以及将传统行业经验转化为数字资产的人工智能赋能服务。',
+    '浙江拜伦智能科技有限公司以AI系统为核心，融合视觉感知、运动控制与知识建模技术，为制造企业提供工业智能化集成解决方案。',
   phone: '+86 185-1672-1988',
   email: 'contact@byrontech.cn',
   address: '浙江省 · 中国',
-  icp: '',
+  icp: '6E3862C7-4810AC',
 };
 
 export const stats = [

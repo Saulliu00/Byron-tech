@@ -10,7 +10,7 @@ export const navItems: NavItem[] = [
     label: '业务领域',
     href: '/services',
     children: [
-      { label: '自动化零部件', href: '/services/automation-parts' },
+      { label: '工业智能化/AI化集成解决方案', href: '/services/automation-parts' },
       { label: '视觉产线解决方案', href: '/services/vision-solutions' },
       { label: 'AI 知识数字化', href: '/services/ai-solutions' },
     ],

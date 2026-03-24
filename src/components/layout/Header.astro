@@ -11,14 +11,10 @@ import { company } from '@/data/company';
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3 group">
-        <div
-          class="w-9 h-9 bg-primary-700 rounded-lg flex items-center justify-center text-white font-bold text-lg"
-        >
-          拜
-        </div>
-        <div class="hidden sm:block">
-          <p class="font-bold text-primary-800 text-base leading-tight">{company.shortName}</p>
-          <p class="text-xs text-gray-500 leading-tight">智能制造 · 驱动未来</p>
+        <img src="/logo.png" alt="Byron Intelligence" class="h-[88px] w-auto object-contain" />
+        <div class="hidden sm:flex flex-col border-l border-gray-200 pl-3">
+          <span class="text-base font-bold text-primary-800 leading-snug tracking-wide">浙江拜伦智能科技有限公司</span>
+          <span class="text-xs text-gray-400 tracking-widest mt-0.5">用AI重构工业智能系统</span>
         </div>
       </a>
 

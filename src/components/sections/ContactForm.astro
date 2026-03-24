@@ -59,7 +59,7 @@ import { company } from '@/data/company';
 
       <!-- Form -->
       <div class="card-base border border-gray-100 p-8">
-        <div id="form-result" class="hidden mb-5 p-4 rounded-lg text-sm font-medium text-center"></div>
+        <div id="form-result" class="hidden mb-5 p-4 rounded-lg text-sm font-medium text-center" role="alert" aria-live="polite"></div>
         <form
           id="contact-form"
           action="https://api.web3forms.com/submit"
@@ -115,7 +115,7 @@ import { company } from '@/data/company';
               class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-white"
             >
               <option value="">请选择</option>
-              <option value="automation-parts">自动化零部件</option>
+              <option value="automation-parts">工业智能化集成解决方案</option>
               <option value="vision-solutions">视觉产线解决方案</option>
               <option value="ai-solutions">AI 知识数字化</option>
               <option value="other">其他</option>
@@ -152,9 +152,12 @@ import { company } from '@/data/company';
   const result = document.getElementById('form-result') as HTMLDivElement;
   const btn = document.getElementById('submit-btn') as HTMLButtonElement;
 
+  const btnOriginalHTML = btn.innerHTML;
+
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
     btn.textContent = '发送中…';
 
     const data = new FormData(form);
@@ -163,23 +166,25 @@ import { company } from '@/data/company';
         method: 'POST',
         body: data,
       });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = await res.json();
       result.classList.remove('hidden', 'bg-red-50', 'text-red-700', 'bg-green-50', 'text-green-700');
       if (json.success) {
         result.classList.add('bg-green-50', 'text-green-700');
-        result.textContent = '✅ 消息已发送！我们将在 24 小时内与您联系。';
+        result.textContent = '消息已发送！我们将在 24 小时内与您联系。';
         form.reset();
       } else {
         result.classList.add('bg-red-50', 'text-red-700');
-        result.textContent = '❌ 发送失败，请稍后重试或直接发送邮件联系我们。';
+        result.textContent = '发送失败，请稍后重试或直接发送邮件联系我们。';
       }
     } catch {
       result.classList.remove('hidden');
       result.classList.add('bg-red-50', 'text-red-700');
-      result.textContent = '❌ 网络错误，请稍后重试。';
+      result.textContent = '网络错误，请稍后重试。';
     } finally {
       btn.disabled = false;
-      btn.innerHTML = '发送消息 <svg class="w-5 h-5 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>';
+      btn.setAttribute('aria-busy', 'false');
+      btn.innerHTML = btnOriginalHTML;
     }
   });
 </script>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#f4f4f8"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e0e0ec" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="8" height="630" fill="#6B5CE7"/>
+
+  <!-- Top right decorative circle -->
+  <circle cx="1100" cy="100" r="180" fill="#6B5CE7" opacity="0.07"/>
+  <circle cx="1100" cy="100" r="110" fill="#6B5CE7" opacity="0.07"/>
+
+  <!-- Bottom left decorative circle -->
+  <circle cx="80" cy="560" r="120" fill="#6B5CE7" opacity="0.06"/>
+
+  <!-- Byron (large, serif-style) -->
+  <text x="100" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="180" font-weight="700" fill="#6B5CE7">Byron</text>
+
+  <!-- Intelligence -->
+  <text x="108" y="370" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="400" fill="#8B7FE8" letter-spacing="6">Intelligence</text>
+
+  <!-- Divider line -->
+  <line x1="100" y1="410" x2="700" y2="410" stroke="#6B5CE7" stroke-width="2" opacity="0.3"/>
+
+  <!-- Chinese company name -->
+  <text x="100" y="460" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" fill="#4a4a6a" font-weight="500">浙江拜伦智能科技有限公司</text>
+
+  <!-- Tagline -->
+  <text x="100" y="510" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#8B7FE8">用AI重构工业智能系统</text>
+
+  <!-- Website hint -->
+  <text x="100" y="580" font-family="Georgia, sans-serif" font-size="20" fill="#aaaacc" letter-spacing="2">byrontech.cn</text>
+</svg>
