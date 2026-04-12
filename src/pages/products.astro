@@ -1,53 +1,400 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import ProductCard from '@/components/ui/ProductCard.astro';
-import SectionHeader from '@/components/ui/SectionHeader.astro';
 import CtaBanner from '@/components/sections/CtaBanner.astro';
-import { products, productCategories } from '@/data/products';
+import { products } from '@/data/products';
 ---
 
 <BaseLayout
   title="产品中心"
-  description="浙江拜伦智能科技工业智能化解决方案产品目录，包括转台、导轨、电机及运动控制器。"
+  description="浙江拜伦智能科技三大业务：智能运动控制、高精度视觉检测、AI系统集成解决方案。"
 >
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-primary-900 to-primary-700 py-20">
-    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="text-sm font-semibold text-accent-400 uppercase tracking-widest mb-4 block">产品中心</span>
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">工业智能化解决方案产品目录</h1>
-      <p class="text-primary-200 max-w-xl mx-auto">
-        精选高精度运动控制与传动组件，满足各类自动化设备需求。
+  <section class="bg-gradient-to-br from-primary-900 via-primary-800 to-blue-900 py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+      style="background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <span class="text-sm font-semibold text-accent-400 uppercase tracking-widest mb-4 block">产品与解决方案</span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-5">以AI为核心的工业智能化体系</h1>
+      <p class="text-primary-200 max-w-2xl mx-auto text-lg leading-relaxed">
+        涵盖精密运动控制硬件、高精度视觉检测系统与系统级AI集成方案，三大业务协同，助力制造企业全面升级。
       </p>
     </div>
   </section>
 
-  <!-- Product Grid -->
-  <section class="section-padding bg-white">
-    <div class="container-max mx-auto">
-      <!-- Category Filter (static display) -->
-      <div class="flex flex-wrap gap-2 mb-10">
-        {productCategories.map((cat) => (
-          <span class="px-4 py-1.5 text-sm font-medium bg-primary-50 text-primary-700 rounded-full border border-primary-100 cursor-default">
-            {cat}
-          </span>
-        ))}
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((product) => <ProductCard product={product} />)}
-      </div>
-
-      <!-- Inquiry note -->
-      <div class="mt-12 p-6 bg-gray-50 rounded-2xl border border-gray-200 text-center">
-        <p class="text-gray-600 text-sm mb-3">
-          未找到所需型号？我们支持按需定制和特殊规格采购。
-        </p>
-        <a href="/contact" class="btn-primary text-sm py-2 px-5">
-          联系技术顾问
+  <!-- Business Selector -->
+  <section class="bg-white border-b border-gray-200 sticky top-16 lg:top-20 z-40">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-1 overflow-x-auto py-1 scrollbar-hide">
+        <a href="#motion" class="business-tab flex items-center gap-2 px-5 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-primary-700 text-primary-700 transition-colors">
+          <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">⚙️</span>
+          智能运动控制
+        </a>
+        <a href="#vision" class="business-tab flex items-center gap-2 px-5 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-gray-500 hover:text-teal-700 hover:border-teal-600 transition-colors">
+          <span class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center text-xs">👁️</span>
+          高精度视觉检测
+        </a>
+        <a href="#ai" class="business-tab flex items-center gap-2 px-5 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-gray-500 hover:text-purple-700 hover:border-purple-600 transition-colors">
+          <span class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-xs">🧠</span>
+          AI系统集成
         </a>
       </div>
     </div>
   </section>
 
-  <CtaBanner title="需要特殊规格或定制方案？" subtitle="我们的工程师团队将为您提供专业选型建议。" />
+  <!-- ─────────────────────────────────────────── -->
+  <!-- BUSINESS 1: 智能运动控制 -->
+  <!-- ─────────────────────────────────────────── -->
+  <section id="motion" class="section-padding bg-white scroll-mt-28">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-2 block">业务一</span>
+          <h2 class="text-3xl font-bold text-gray-900">工业AI系统驱动的<br class="hidden sm:block"/>智能运动控制与集成解决方案</h2>
+          <p class="text-gray-500 mt-2 max-w-xl">提供高精度直线传动系统、旋转工作台、直驱电机及控制系统，融合AI智能化，覆盖从单件采购到整体运动解决方案的全链路服务。</p>
+        </div>
+        <a href="/services/automation-parts" class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-800 transition-colors">
+          查看详情
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Trust Badge -->
+      <div class="flex flex-wrap gap-2 mb-8 items-center">
+        <span class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          免费方案设计 · 24小时响应
+        </span>
+        {['高精度转台 / 旋转平台', '直线导轨 / 滑块组件', '电气系统智能控制', '工业AI控制系统', '客制化AI集成方案'].map((f) => (
+          <span class="px-3 py-1.5 text-xs font-medium bg-gray-100 text-gray-600 rounded-full">{f}</span>
+        ))}
+      </div>
+
+      <!-- Two Entry Points -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
+        <!-- Path A: Clear requirements -->
+        <div class="bg-white rounded-2xl border-l-4 border-l-blue-600 border border-gray-100 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 text-xl">📋</div>
+            <div>
+              <h3 class="text-base font-bold text-gray-900 mb-1">已有明确需求</h3>
+              <p class="text-sm text-gray-500 mb-4 leading-relaxed">已知所需型号或规格，直接浏览产品目录，按参数选型下单。</p>
+              <a href="#motion-grid" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-800 transition-colors">
+                浏览产品目录
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Path B: Only an idea -->
+        <div class="bg-gradient-to-br from-blue-600 to-primary-700 rounded-2xl p-6 hover:shadow-lg transition-shadow text-white">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center shrink-0 text-xl">💡</div>
+            <div>
+              <h3 class="text-base font-bold mb-1">只有初步想法？</h3>
+              <p class="text-sm text-blue-100 mb-4 leading-relaxed">告诉我们你的应用场景或设计目标，拜伦工程师为你量身设计完整方案，零成本，零风险。</p>
+              <a href="/contact" class="inline-flex items-center gap-1.5 text-sm font-semibold bg-white text-primary-700 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors">
+                免费方案咨询
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 从想法到方案 Journey Strip -->
+      <div class="bg-gray-50 rounded-2xl border border-gray-100 px-6 py-5 mb-10">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">从想法到交付，全程陪伴</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {[
+            { icon: '💡', step: '告诉我们你的想法', desc: '应用场景 / 设计目标' },
+            { icon: '📐', step: '工程师免费设计方案', desc: '选型建议 + 系统方案' },
+            { icon: '⚙️', step: '精选零部件组合', desc: '品质稳定，现货供应' },
+            { icon: '🚀', step: '集成交付，即插即用', desc: '调试到位，快速上线' },
+          ].map((s, i) => (
+            <div class="flex flex-col items-center text-center relative">
+              <div class="text-2xl mb-2">{s.icon}</div>
+              <p class="text-xs font-bold text-gray-800 mb-0.5">{s.step}</p>
+              <p class="text-xs text-gray-400">{s.desc}</p>
+              {i < 3 && (
+                <svg class="hidden sm:block absolute -right-2 top-3 w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div id="motion-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {products.map((product) => (
+          <article class="group bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all overflow-hidden">
+            <div class="h-36 bg-gradient-to-br from-blue-50 to-primary-100 flex items-center justify-center">
+              <div class="text-5xl opacity-50">⚙️</div>
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded-full">{product.category}</span>
+              <h3 class="text-base font-bold text-gray-900 mt-2 mb-1 group-hover:text-primary-700 transition-colors">{product.name}</h3>
+              <p class="text-sm text-gray-500 mb-3 leading-relaxed">{product.description}</p>
+              <ul class="space-y-1 mb-4">
+                {product.specs.map((spec) => (
+                  <li class="text-xs text-gray-500 flex items-center gap-1.5">
+                    <span class="w-1 h-1 bg-blue-400 rounded-full shrink-0"></span>
+                    {spec}
+                  </li>
+                ))}
+              </ul>
+              <div class="pt-3 border-t border-gray-100">
+                <a href="/contact" class="text-sm font-semibold text-primary-700 hover:text-primary-800 flex items-center gap-1">
+                  询价 / 咨询
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mx-8"></div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- BUSINESS 2: 高精度视觉检测 -->
+  <!-- ─────────────────────────────────────────── -->
+  <section id="vision" class="section-padding bg-gray-50 scroll-mt-28">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2 block">业务二</span>
+          <h2 class="text-3xl font-bold text-gray-900">高精度视觉检测系统</h2>
+          <p class="text-gray-500 mt-2 max-w-xl">工业相机 + 深度学习算法，提供亚像素级精度检测方案，已验证可测量 10μm 公差零件，覆盖外观缺陷、轮廓测量、机器人引导全场景。</p>
+        </div>
+        <a href="/services/vision-solutions" class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800 transition-colors">
+          查看详情
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Key Metrics -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        {[
+          { value: '10μm', label: '最小可测公差', sub: '已验证量产零件' },
+          { value: '±0.01mm', label: '尺寸测量精度', sub: '亚像素级算法' },
+          { value: '100%', label: '在线全检覆盖率', sub: '替代人工抽检' },
+          { value: '10×', label: '检测速度提升', sub: '对比人工视检' },
+        ].map((m) => (
+          <div class="bg-white rounded-2xl border border-teal-100 p-5 text-center hover:shadow-md transition-shadow">
+            <div class="text-3xl font-extrabold text-teal-700 mb-1">{m.value}</div>
+            <div class="text-sm font-semibold text-gray-800 mb-0.5">{m.label}</div>
+            <div class="text-xs text-gray-400">{m.sub}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Capability Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            icon: '🔍',
+            title: '外观缺陷自动检测',
+            desc: '识别产品表面划痕、气泡、污点、形变等缺陷，支持 PCB、金属件、包装多品类，无需人工视检。',
+            tags: ['PCB 检测', '金属件检测', '包装检测'],
+          },
+          {
+            icon: '📐',
+            title: '高精度轮廓与尺寸测量',
+            desc: '亚像素算法精密还原零件轮廓，测量关键尺寸、孔径、平面度，最小可检测 10μm 公差，实现 100% 在线质检。',
+            tags: ['轮廓测量', '孔径检测', '10μm 精度'],
+          },
+          {
+            icon: '🤖',
+            title: '机器人视觉引导定位',
+            desc: '为机器人提供实时视觉反馈，实现灵活抓取与精确装配，支持多品种混产场景与 3D 视觉引导。',
+            tags: ['3D 视觉', '抓取定位', '装配引导'],
+          },
+          {
+            icon: '📝',
+            title: '字符与条码识别（OCR）',
+            desc: '高速识别二维码、条形码、字符及铭牌信息，实现产品全程追溯，支持激光刻印与直接打印。',
+            tags: ['二维码', 'OCR', '全程追溯'],
+          },
+        ].map((cap) => (
+          <div class="bg-white rounded-2xl border border-teal-100 p-6 hover:shadow-md hover:border-teal-300 transition-all">
+            <div class="text-3xl mb-3">{cap.icon}</div>
+            <h3 class="text-base font-bold text-gray-900 mb-2">{cap.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">{cap.desc}</p>
+            <div class="flex flex-wrap gap-2">
+              {cap.tags.map((tag) => (
+                <span class="text-xs bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full font-medium border border-teal-100">{tag}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Delivery Process -->
+      <div class="mt-10 bg-gradient-to-br from-teal-700 to-teal-900 rounded-3xl p-8 text-white">
+        <h3 class="text-lg font-bold mb-6">项目交付流程</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-5 gap-4">
+          {[
+            { n: '01', t: '现场调研', d: '了解产线与检测需求' },
+            { n: '02', t: '方案评估', d: '可行性报告与技术方案' },
+            { n: '03', t: '样品测试', d: '搭建测试环境验证效果' },
+            { n: '04', t: '系统集成', d: '正式部署并与产线对接' },
+            { n: '05', t: '验收培训', d: '达标验收，操作培训' },
+          ].map((s) => (
+            <div class="flex sm:flex-col items-start sm:items-center gap-3 sm:gap-2 sm:text-center">
+              <span class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold shrink-0">{s.n}</span>
+              <div>
+                <p class="font-semibold text-sm">{s.t}</p>
+                <p class="text-teal-200 text-xs mt-0.5">{s.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mx-8"></div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- BUSINESS 3: AI系统集成 -->
+  <!-- ─────────────────────────────────────────── -->
+  <section id="ai" class="section-padding bg-white scroll-mt-28">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-2 block">业务三</span>
+          <h2 class="text-3xl font-bold text-gray-900">系统级AI集成解决方案</h2>
+          <p class="text-gray-500 mt-2 max-w-xl">以大数据与AI技术为核心，构建覆盖感知、决策与执行的完整智能系统，助力客户实现从自动化到智能化的系统级跃升，显著缩短研发周期、降低综合成本。</p>
+        </div>
+        <a href="/services/ai-solutions" class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 hover:text-purple-800 transition-colors">
+          查看详情
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Core Beliefs -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+        {[
+          {
+            icon: '🏆',
+            belief: '数据是最宝贵的资产',
+            detail: '将企业经验转化成数据资产，才是真正难以被复制的竞争护城河。',
+          },
+          {
+            icon: '🎯',
+            belief: '干净的数据才是致胜法宝',
+            detail: '干净、准确、可调用的结构化数据，是驱动AI决策的核心燃料。',
+          },
+          {
+            icon: '🚀',
+            belief: '大数据AI化正是时代潮流',
+            detail: '率先将大数据与AI融合应用的企业，将在下一轮竞争中占据先机。',
+          },
+        ].map((b) => (
+          <div class="relative bg-purple-50 border border-purple-100 rounded-2xl p-6 hover:shadow-md hover:border-purple-300 transition-all overflow-hidden">
+            <div class="absolute -top-4 -right-4 text-6xl opacity-5 select-none">{b.icon}</div>
+            <div class="text-2xl mb-3">{b.icon}</div>
+            <h3 class="text-base font-bold text-purple-900 mb-2">{b.belief}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{b.detail}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Customer Case Banner -->
+      <div class="bg-gradient-to-br from-purple-900 to-primary-900 rounded-3xl p-8 mb-10 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div class="relative z-10">
+          <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            标杆客户合作案例
+          </span>
+          <h3 class="text-2xl font-bold mb-3">国家重点领域大数据与AI系统集成项目</h3>
+          <p class="text-purple-200 text-sm leading-relaxed max-w-2xl mb-6">
+            拜伦与某国家重点领域头部单位达成战略合作，以大数据平台与AI模型为核心，构建系统级智能解决方案。
+            通过将历史数据、专家经验与实时传感数据融合建模，显著缩短研发迭代周期，大幅降低综合研发成本，
+            实现从人工经验驱动向数据智能驱动的根本性转变。
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { icon: '⏱️', value: '研发周期大幅缩短', desc: 'AI驱动迭代加速' },
+              { icon: '💰', value: '综合成本显著降低', desc: '减少无效试验' },
+              { icon: '🔗', value: '系统级整体交付', desc: '感知·决策·执行一体化' },
+            ].map((r) => (
+              <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                <div class="text-2xl mb-2">{r.icon}</div>
+                <div class="font-bold text-white text-sm mb-1">{r.value}</div>
+                <div class="text-purple-300 text-xs">{r.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- System Capabilities -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+        {[
+          { icon: '🗄️', title: '大数据平台构建', desc: '汇聚历史数据、传感数据与专家知识，建立统一数据底座。' },
+          { icon: '🤖', title: 'AI模型开发与训练', desc: '针对具体业务目标定制算法，工艺优化、预测维护、决策支持。' },
+          { icon: '🧩', title: '系统级集成交付', desc: '与现有MES/ERP/边缘设备无缝对接，整体系统统一交付。' },
+          { icon: '🔄', title: '持续学习与迭代', desc: '模型随生产数据自动更新，长期保持最优决策水平。' },
+        ].map((cap) => (
+          <div class="bg-purple-50 rounded-2xl border border-purple-100 p-5 hover:shadow-md hover:border-purple-300 transition-all">
+            <div class="text-3xl mb-3">{cap.icon}</div>
+            <h3 class="text-sm font-bold text-gray-900 mb-2">{cap.title}</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">{cap.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Implementation Steps -->
+      <div class="bg-gray-50 rounded-3xl p-8">
+        <h3 class="text-base font-bold text-gray-900 mb-6">实施路径 · 从数据到智能</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {[
+            { n: '01', t: '数据盘点', d: '梳理现有数据资产' },
+            { n: '02', t: '知识萃取', d: '专家经验结构化' },
+            { n: '03', t: '模型构建', d: '算法训练与优化' },
+            { n: '04', t: '验证迭代', d: '实际环境测试' },
+            { n: '05', t: '落地部署', d: '集成MES/边缘设备' },
+            { n: '06', t: '持续学习', d: '模型自动更新' },
+          ].map((s) => (
+            <div class="text-center">
+              <div class="w-10 h-10 bg-purple-700 text-white rounded-xl flex items-center justify-center font-bold text-xs mx-auto mb-2">{s.n}</div>
+              <p class="text-sm font-semibold text-gray-800">{s.t}</p>
+              <p class="text-xs text-gray-500 mt-0.5">{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <CtaBanner
+    title="需要定制方案或技术咨询？"
+    subtitle="我们的工程师团队将在 24 小时内与您取得联系。"
+  />
 </BaseLayout>

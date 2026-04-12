@@ -13,16 +13,16 @@ export const services: Service[] = [
   {
     id: 'automation-parts',
     icon: '⚙️',
-    title: '工业智能化/AI化集成解决方案',
-    subtitle: '精密传动 · 可靠运行',
+    title: '工业AI系统驱动的智能运动控制与集成解决方案',
+    subtitle: '智能控制 · 精密传动',
     description:
       '提供高精度直线传动系统、旋转工作台、直驱电机及控制系统，融合智能化AI集成，涵盖从单件采购到整体运动解决方案的全链路服务。',
     features: [
       '高精度转台 / 旋转平台',
       '直线导轨 / 滑块组件',
-      '伺服电机与驱动器',
-      '运动控制器及配套方案',
-      '定制化机械集成方案',
+      '电气系统智能控制与集成解决方案',
+      '工业AI控制系统及智能优化方案',
+      '客制化AI集成与系统级解决方案',
     ],
     href: '/services/automation-parts',
     color: 'blue',

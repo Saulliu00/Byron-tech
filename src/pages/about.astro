@@ -23,24 +23,190 @@ const values = [
 
 <BaseLayout
   title="关于我们"
-  description="了解浙江拜伦智能科技有限公司的发展历程、核心价值观与团队理念。"
+  description="了解浙江拜伦智能科技有限公司的工程团队背景、创始人经历与核心价值观。"
 >
-  <!-- Page Hero -->
-  <section class="bg-gradient-to-br from-primary-900 to-primary-700 py-24">
-    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="text-sm font-semibold text-accent-400 uppercase tracking-widest mb-4 block">关于我们</span>
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6">{company.name}</h1>
-      <p class="text-lg text-primary-200 max-w-2xl mx-auto leading-relaxed">
-        {company.description}
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary-900 via-primary-800 to-blue-900 py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+      style="background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <span class="text-xs font-semibold text-accent-400 uppercase tracking-widest mb-4 block">关于我们</span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-5">由工程师组成的工程师团队</h1>
+      <p class="text-base text-primary-200 max-w-2xl mx-auto leading-relaxed">
+        与客户共创的不只是产品，而是通往正确结果的路径。
       </p>
     </div>
   </section>
 
   <StatsBar />
 
-  <!-- Mission & Vision -->
+  <!-- Founder DNA -->
   <section class="section-padding bg-white">
-    <div class="container-max mx-auto">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-10">
+        <span class="text-xs font-semibold text-primary-600 uppercase tracking-widest mb-2 block">创始团队</span>
+        <h2 class="text-3xl font-bold text-gray-900">根植工程，深懂制造</h2>
+        <p class="text-gray-500 mt-2 max-w-xl mx-auto text-sm">两位创始人均来自机械与电气工程背景，拥有超过 8 年半导体设备研发经验，深刻理解高端制造的技术边界与工程挑战。</p>
+      </div>
+
+      <!-- Semiconductor Credential Strip (slim) -->
+      <div class="flex items-center gap-3 bg-primary-50 border border-primary-100 rounded-xl px-5 py-3 mb-8 w-fit mx-auto">
+        <span class="text-lg">🔬</span>
+        <span class="text-sm font-semibold text-primary-800">8年+ 半导体设备研发经验</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-xs text-primary-600">纳米级精度 · 极端可靠性 · 严苛工艺一致性</span>
+      </div>
+
+      <!-- Founder Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Founder 1 -->
+        <div class="bg-gradient-to-br from-primary-50 to-blue-50 rounded-2xl p-6 border border-primary-100 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-primary-700 rounded-xl flex items-center justify-center text-white text-lg shrink-0">⚙️</div>
+            <div>
+              <span class="text-xs font-semibold text-primary-600 uppercase tracking-widest block">联合创始人 · 机械工程</span>
+              <h3 class="text-base font-bold text-gray-900">精密机械 × 运动控制</h3>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            深耕精密机械设计与运动控制系统研发，主导多项半导体设备核心机构的工程落地。
+            对高精度传动系统、结构刚性设计与制造工艺有深厚的第一手经验。
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {['机械结构设计', '精密传动系统', '半导体设备', '8年+经验'].map((t) => (
+              <span class="text-xs bg-primary-100 text-primary-700 px-2.5 py-1 rounded-full font-medium">{t}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Founder 2 -->
+        <div class="bg-gradient-to-br from-purple-50 to-primary-50 rounded-2xl p-6 border border-purple-100 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-purple-700 rounded-xl flex items-center justify-center text-white text-lg shrink-0">⚡</div>
+            <div>
+              <span class="text-xs font-semibold text-purple-600 uppercase tracking-widest block">联合创始人 · 电气工程</span>
+              <h3 class="text-base font-bold text-gray-900">电气系统 × AI集成</h3>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            专注电气控制系统架构与AI工程化落地，曾于全球前三半导体设备制造商从事核心研发，完整参与从架构设计到系统交付的全流程开发。具备将工程经验抽象为可复用AI模型与方法论的能力。
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {['电气控制系统', 'AI算法工程化', '大数据平台', '8年+经验'].map((t) => (
+              <span class="text-xs bg-purple-100 text-purple-700 px-2.5 py-1 rounded-full font-medium">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Credentials -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="text-xs font-semibold text-primary-600 uppercase tracking-widest mb-2 block">核心团队</span>
+        <h2 class="text-3xl font-bold text-gray-900">来自全球500强的工程精英</h2>
+        <p class="text-gray-500 mt-2 text-sm max-w-lg">横跨数据科学、硬件工程与数据库架构，构成完整的智能化工程能力矩阵。</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {[
+          {
+            icon: '🧠',
+            role: '数据科学家',
+            accent: 'border-l-purple-500',
+            badge: 'bg-purple-100 text-purple-700',
+            iconBg: 'bg-purple-700',
+            desc: '构建工业AI模型、大数据分析平台与预测性维护算法，将海量生产数据转化为可执行的决策依据。',
+            skills: ['机器学习', '大数据分析', '预测建模', 'AI工程化'],
+          },
+          {
+            icon: '🔧',
+            role: '硬件工程师',
+            accent: 'border-l-blue-500',
+            badge: 'bg-blue-100 text-blue-700',
+            iconBg: 'bg-blue-700',
+            desc: '主导精密机械、电气控制系统及视觉硬件的集成设计，确保系统从原理验证到量产的工程可靠性。',
+            skills: ['精密机械', '电气控制', '视觉硬件', '系统集成'],
+          },
+          {
+            icon: '🗄️',
+            role: '数据库工程师',
+            accent: 'border-l-teal-500',
+            badge: 'bg-teal-100 text-teal-700',
+            iconBg: 'bg-teal-700',
+            desc: '设计高性能工业数据架构，构建干净、准确、可调用的结构化数据底座，是AI应用落地的基石。',
+            skills: ['数据架构', '实时数据库', '结构化建模', '数据治理'],
+          },
+        ].map((m) => (
+          <div class={`bg-white border border-l-4 ${m.accent} border-gray-100 rounded-2xl p-5 hover:shadow-md transition-shadow`}>
+            <div class="flex items-center gap-3 mb-3">
+              <div class={`w-9 h-9 ${m.iconBg} rounded-lg flex items-center justify-center text-white text-base shrink-0`}>{m.icon}</div>
+              <span class={`text-xs font-semibold ${m.badge} px-2.5 py-1 rounded-full`}>{m.role}</span>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed mb-3">{m.desc}</p>
+            <div class="flex flex-wrap gap-1.5">
+              {m.skills.map((s) => (
+                <span class="text-xs bg-gray-50 text-gray-500 px-2 py-0.5 rounded-full border border-gray-200">{s}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy: We Know What You Need -->
+  <section class="section-padding bg-white">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-10">
+        <span class="text-xs font-semibold text-primary-600 uppercase tracking-widest mb-2 block">我们的工程哲学</span>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">我们知道你需要什么<br/>即使你自己还不确定</h2>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          真正的工程专家不只是执行者 —— 他们能在需求模糊时看清方向，在选择分叉时选对路径，在客户提问之前预见问题。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            num: '01',
+            bar: 'bg-primary-600',
+            title: '不只懂技术，更懂场景',
+            desc: '8年半导体设备经验让我们深知，不同应用场景对技术规格的要求截然不同。我们在需求定义阶段就规避日后代价高昂的设计错误。',
+          },
+          {
+            num: '02',
+            bar: 'bg-purple-600',
+            title: '知道最优开发路径',
+            desc: '来自世界500强的研发流程经验，让我们用最短路径、最低风险将想法落地 —— 而不是走弯路再推倒重来。',
+          },
+          {
+            num: '03',
+            bar: 'bg-teal-600',
+            title: '预见客户的隐性需求',
+            desc: '客户往往知道自己的问题，却不知道最优解。我们从工程视角帮你看见还看不到的需求，提前布局，一步到位。',
+          },
+        ].map((p) => (
+          <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-md border border-gray-100 hover:border-gray-200 transition-all">
+            <div class={`h-1 w-8 ${p.bar} rounded-full mb-4`}></div>
+            <span class="text-xs font-bold text-gray-300 mb-2 block">{p.num}</span>
+            <h3 class="text-base font-bold text-gray-900 mb-2">{p.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
           <SectionHeader
@@ -48,9 +214,9 @@ const values = [
             title="用技术赋能中国制造"
             subtitle="我们相信，每一家制造企业积累的工艺知识与生产经验，都是宝贵的数字资产。拜伦科技的使命，就是帮助这些企业将隐性知识显性化、将传统经验智能化，让中国制造在全球舞台上更具竞争力。"
           />
-          <div class="mt-8 p-6 bg-primary-50 rounded-2xl border border-primary-100">
-            <p class="text-primary-800 font-semibold mb-2">我们的愿景</p>
-            <p class="text-gray-700 text-sm leading-relaxed">
+          <div class="mt-6 p-5 bg-primary-50 rounded-2xl border border-primary-100">
+            <p class="text-primary-800 font-semibold text-sm mb-1.5">我们的愿景</p>
+            <p class="text-gray-600 text-sm leading-relaxed">
               成为长三角地区最受信赖的工业智能化服务商，以硬件、软件、数据三位一体的能力，
               帮助制造企业从自动化迈向智能化。
             </p>
@@ -58,10 +224,10 @@ const values = [
         </div>
         <div class="grid grid-cols-2 gap-4">
           {values.map((v) => (
-            <div class="p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary-200 hover:shadow-md transition-all">
+            <div class="p-5 bg-white rounded-2xl border border-gray-100 hover:border-primary-200 hover:shadow-md transition-all">
               <div class="text-2xl mb-2">{v.icon}</div>
-              <h3 class="font-bold text-gray-900 mb-1">{v.title}</h3>
-              <p class="text-xs text-gray-600 leading-relaxed">{v.desc}</p>
+              <h3 class="font-bold text-gray-900 mb-1 text-sm">{v.title}</h3>
+              <p class="text-xs text-gray-500 leading-relaxed">{v.desc}</p>
             </div>
           ))}
         </div>
@@ -70,21 +236,21 @@ const values = [
   </section>
 
   <!-- Milestones -->
-  <section class="section-padding bg-gray-50">
-    <div class="container-max mx-auto">
+  <section class="section-padding bg-white">
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeader eyebrow="发展历程" title="我们的成长之路" center />
       <div class="max-w-2xl mx-auto">
         <div class="relative">
-          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-primary-200"></div>
-          <ul class="space-y-8">
+          <div class="absolute left-5 top-0 bottom-0 w-px bg-gray-200"></div>
+          <ul class="space-y-7">
             {milestones.map((m, i) => (
-              <li class="relative flex items-start gap-6 pl-14">
-                <div class="absolute left-0 w-12 h-12 bg-primary-700 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">
+              <li class="relative flex items-start gap-5 pl-12">
+                <div class="absolute left-0 w-10 h-10 bg-primary-700 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">
                   {i + 1}
                 </div>
-                <div>
+                <div class="pt-2">
                   <p class="text-xs font-semibold text-primary-600 uppercase tracking-widest mb-1">{m.year}</p>
-                  <p class="text-gray-700 text-sm leading-relaxed">{m.event}</p>
+                  <p class="text-gray-600 text-sm leading-relaxed">{m.event}</p>
                 </div>
               </li>
             ))}
@@ -94,5 +260,8 @@ const values = [
     </div>
   </section>
 
-  <CtaBanner />
+  <CtaBanner
+    title="与顶尖工程团队合作"
+    subtitle="告诉我们你的想法，我们的工程师将为你规划最优路径。"
+  />
 </BaseLayout>
